@@ -1,9 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router,
-
-} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import './App.css';
-import {Button, Container} from '@material-ui/core'
+import {Container} from '@material-ui/core'
+import startButton from "./components/startButton";
 
 const styles = {
     container: {
@@ -13,23 +12,21 @@ const styles = {
         justifyContent: 'center',
         flexDirection: 'column'
     },
-    startButton : {
-        marginTop : 20,
+    startButton: {
+        marginTop: 20,
         width: 150,
         height: 50,
 
     }
 };
 
-const App = () => {
+const App = ({hystory}) => {
 
     return (
         <Container>
             <Router>
                 <div style={styles.container}>
-                    <Button variant="contained" color={"primary"} style={styles.startButton}>
-                        Start Game
-                    </Button>
+
                 </div>
             </Router>
         </Container>
