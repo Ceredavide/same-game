@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
-import {Container} from '@material-ui/core'
-import startButton from "./components/startButton";
+import {Container,Input} from '@material-ui/core'
+import StartButton from "./components/startButton";
 
 const styles = {
     container: {
@@ -25,10 +25,16 @@ const App = ({hystory}) => {
     return (
         <Container>
             <Router>
-                <div style={styles.container}>
+            <div style={styles.container}>
 
+            <Switch>
+                <Route exact path="/" component={() => <StartButton/>}/>
+                <Route exact path="/game" component={() => <Input value={"game"}/>}/>
+
+            </Switch>
                 </div>
-            </Router>
+                    </Router>
+
         </Container>
 
     );
