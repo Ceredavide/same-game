@@ -1,47 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 
 
 const Game = () => {
-const cubo = (
-    <Button  variant="contained" color={"primary"} style={{
-        height : 50,
-        weight : 50,
-        margin : 1
-    }}/>
-);
-
-
+    const [animatedClass, setAnimatedClass] = useState('');
+    const cubo = (
+        <Button  variant="contained" className={animatedClass} color={"primary"} style={{
+            height : 50,
+            weight : 50,
+            margin : 1
+        }}
+        onClick={()=> setAnimatedClass('animated bounceIn ')}
+        />
+    );
 
     return(
       <div style={{color : 'white'}} >
 
           {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-            <br/>
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-<br/>
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
-          {cubo}
 
 
-
+Già lo sai
       </div>
     );
 };

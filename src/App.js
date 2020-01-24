@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
-import {Container, Paper} from '@material-ui/core'
+import {Container} from '@material-ui/core'
 import StartButton from "./components/startButton";
 import Game from './components/game'
 
