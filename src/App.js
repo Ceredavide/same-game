@@ -2,8 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
 import {Container} from '@material-ui/core'
-import StartButton from "./components/startButton";
-import Game from './components/game'
+import Home from "./screens/Home"
+import Game from './screens/Game'
 
 const styles = {
     container: {
@@ -28,9 +28,8 @@ const App = () => {
             <Router>
                 <div style={styles.container}>
                     <Switch>
-                        <Route exact path="/" component={() => <div><StartButton/> </div>}/>
+                        <Route exact path="/" component={() => <Home/>}/>
                         <Route exact path="/game" component={() => <Game/>}/>
-
                     </Switch>
                 </div>
             </Router>
