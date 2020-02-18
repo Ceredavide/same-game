@@ -1,26 +1,33 @@
-import React, { useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useState} from "react";
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 
-import Cubo from "../components/cubo";
+import Griglia from "../components/griglia";
 
 const useStyles = makeStyles({
     root: {
-        padding: 10,
-        height: 350,
-        width: 350
+        paddingLeft: 10,
+        paddingRight : 10,
+        height: 360,
+        width: 330
+
     },
+    griglia : {
+
+    }
 });
 
 const Game = () => {
-    const [buttonsState, setButtonsState] = useState([])
-
-    const classes = useStyles()
+    const [buttonsState, setButtonsState] = useState([]);
+    const classes = useStyles();
     return (
+
         <Card className={classes.root}>
-            <Cubo />
+            <Griglia/>
+
         </Card>
     );
 };
+
 
 export default Game;
