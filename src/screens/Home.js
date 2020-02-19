@@ -1,6 +1,6 @@
 import React from "react"
 
-import StartButton from "../components/startButton";
+import StartButton from "../components/Buttons/startButton";
 
 const Home = () => {
     return (
