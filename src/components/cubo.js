@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
-const styles = {
-    height: 50,
-    weight: 50,
-    margin: 1
-}
-const Cubo = ({styles}) => {
-    const [animatedClass, setAnimatedClass] = useState('');
+import {makeStyles} from "@material-ui/core/styles";
 
-    return <Button variant="contained" className={animatedClass} color={"primary"} style={styles}
-        onClick={() => {
-            setAnimatedClass('');
-            setAnimatedClass('animated bounceIn')
-        }}
+const useStyles = makeStyles({
+    root: {
+        height: 50,
+        weight: 50,
+        margin: 1,
+        backgroundColor: props => props.color
+    },
+});
+
+const Cubo = ({...props}) => {
+    const [animatedClass, setAnimatedClass] = useState('');
+    const classes = useStyles(props);
+
+    return <Button classes={{animatedClass, ...classes}} variant="contained"
+                   onClick={() => {
+                       setAnimatedClass('');
+                       setAnimatedClass('animated bounceIn')
+                   }}
     />
-}
+};
 
 export default Cubo;

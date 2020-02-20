@@ -12,8 +12,7 @@ const HomeButton = ({history}) => {
 
     return (
         <button className={'btn third'} onClick={() => history.push('/')}>
-            <HomeIcon fontSize={"medium"}/>
-
+            <HomeIcon fontSize={"default"}/>
         </button>
     );
 };
