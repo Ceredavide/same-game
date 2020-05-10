@@ -1,39 +1,21 @@
 import React from "react";
-import Cubo from './cubo';
+import Column from "./Column"
 
-let cubi = [];
-const color = ["yellow","green","blue","red"];
- for (let i = 0; i < 25; i++) {
-     const random = Math.floor(Math.random()*(4-0)+0);
-        cubi.push(color[random]);
-    }
-const styles = {
-    height : "auto",
-    width : 330,
-};
- const styleCubo = {
-    height: 50,
-    weight: 50,
-    margin: 1,
-     backgroundColor : "green"
-}
-const Griglia = () => {
- const styleCubo = {
-    height: 50,
-    weight: 50,
-    margin: 1,
 
-}
+const Griglia = ({ columns, onButtonClick }) => {
+    // todo dare flex direction cosi crea il cubo
     return (
-        <div style={styles}>
-            {cubi.map(color => {return (<Cubo   style={{backgroundColor : "yellow"}} styles={{
-                height: 50,
-                weight: 50,
-                margin: 1,
-            backgroundColor: color
-            }}/>)})}
+        <div style={{flexDirection: "row"}}>
+            {columns.map(column => <Column column={column} onButtonClick={onButtonClick} />)}
         </div>
     )
+};
+
+const styles = {
+    griglia: {
+        height: "auto",
+        width: "auto",
+    }
 };
 
 export default Griglia;
