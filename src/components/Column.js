@@ -3,20 +3,12 @@ import Cubo from './Cubo';
 
 const Column = ({ column, onButtonClick }) => {
     return (
-        <div style={styles.column}>
+        <div>
             {column.map(cube =>
-                <div>
-                    <Cubo state={cube} onButtonClick={onButtonClick} />
-                </div>
-            )}
+                <Cubo state={cube} onButtonClick={onButtonClick} />)}
         </div>
     )
 }
 
-const styles = {
-    column: {
-
-    }
-}
 
 export default Column

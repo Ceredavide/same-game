@@ -9,15 +9,14 @@ import useColumns from "../hooks/useColumns";
 
 const Game = () => {
     const [gameCounter, setGameCounter] = useState(0)
+    const [columns, setColumns] = useState(useColumns())
     const [score, setScore] = useState(0)
 
-    const columns = useColumns()
-
     function onButtonClick(x, y, color) {
-        console.log(x, y, color)
+        columns[y-1].pop(x)
+        setColumns([...columns])
+        console.table([...columns])
     }
-
-    console.log(columns)
 
     const classes = useStyles();
     return (

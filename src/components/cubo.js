@@ -8,6 +8,7 @@ const Cubo = ({ state, onButtonClick }) => {
         // metterci setCubi
         setAnimatedClass('');
         setAnimatedClass('animated bounceIn')
+        console.log(state.x, state.y, state.color)
         onButtonClick(state.x, state.y, state.color)
     }
 
