@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 
-const Cubo = ({ state, onButtonClick }) => {
+const Cubo = ({ color, onButtonClick, x, y }) => {
     const [animatedClass, setAnimatedClass] = useState('');
 
     function animate() {
         // metterci setCubi
         setAnimatedClass('');
         setAnimatedClass('animated bounceIn')
-        console.log(state.x, state.y, state.color)
-        onButtonClick(state.x, state.y, state.color)
+        onButtonClick(x, y, color)
     }
 
     const styles = {
         height: 50,
         weight: 50,
-        margin: 1
+        margin: 3
     }
 
     return (
@@ -23,7 +22,7 @@ const Cubo = ({ state, onButtonClick }) => {
             variant="contained"
             className={animatedClass}
             color={"primary"}
-            style={{ ...styles, backgroundColor: state.color }}
+            style={{ ...styles, backgroundColor: color }}
             onClick={animate}
         />
     )
