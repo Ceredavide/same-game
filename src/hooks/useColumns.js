@@ -10,7 +10,8 @@ function useColumns() {
     function createCubi() {
 
         //
-        //Qui modificando il valore di x e y si può modificare la grangezza della griglia 
+        //Qui modificando il valore di x e y
+        //si può modificare la grangezza della griglia 
         //
 
         for (let y = 0; y < 5; y++) {
@@ -18,8 +19,8 @@ function useColumns() {
             for (let x = 0; x < 5; x++) {
                 const randomColor = colors[Math.floor(Math.random() * (4 - 0) + 0)];
                 column.push({
-                    x: x + 1,
-                    y: y + 1,
+                    x: x ,
+                    y: y ,
                     color: randomColor
                 })
             }
