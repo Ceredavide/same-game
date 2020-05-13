@@ -18,11 +18,7 @@ function useColumns() {
             let column = []
             for (let x = 0; x < 5; x++) {
                 const randomColor = colors[Math.floor(Math.random() * (4 - 0) + 0)];
-                column.push({
-                    x: x ,
-                    y: y ,
-                    color: randomColor
-                })
+                column.push(randomColor)
             }
             columns.push(column)
             setColumns([...columns])
