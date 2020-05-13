@@ -1,12 +1,17 @@
 import React from "react"
 import Cubo from './Cubo';
 
-const Column = ({ column, onButtonClick }) => {
+import Box from '@material-ui/core/Box';
+
+const Column = ({ x, column, onButtonClick }) => {
     return (
-        <div>
-            {column.map(cube =>
-                <Cubo state={cube} onButtonClick={onButtonClick} />)}
-        </div>
+        <Box flexDirection="column-reverse">
+            {column.map((color, index) =>
+                <Box>
+                    <Cubo y={index} x={x} color={color} onButtonClick={onButtonClick} />
+                </Box>
+            )}
+        </Box>
     )
 }
 
