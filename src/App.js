@@ -5,7 +5,7 @@ import './Css/App.css';
 import { Container } from '@material-ui/core'
 
 import Home from "./screens/Home"
-import Game from './screens/Game'
+import Game from './screens/game'
 
 const App = () => {
     return (

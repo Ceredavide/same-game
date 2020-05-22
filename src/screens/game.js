@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 
 import HomeButton from "../components/Buttons/homeButton";
 import RefreshButton from "../components/Buttons/refreshButton";
-import Griglia from "../components/Griglia";
+import Griglia from "../components/griglia";
 
 import useCheckColors from "../hooks/useCheckColors"
 

@@ -1,5 +1,5 @@
 import React from "react"
-import Cubo from './Cubo';
+import Cubo from './cubo';
 
 import Box from '@material-ui/core/Box';
 
