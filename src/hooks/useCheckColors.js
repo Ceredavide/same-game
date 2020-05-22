@@ -35,10 +35,8 @@ const useCheckColors = () => {
     }
 
     function removeCoordinates() {
-        console.table(coordinates)
-        console.table(columns)
         coordinates.forEach(coordinate => {
-            columns[coordinate.x].splice(coordinate.y, 1)
+            columns[coordinate.x].splice(coordinate.y, 1) //todo
             setColumns([...columns])
         })
         setCoordinates([])

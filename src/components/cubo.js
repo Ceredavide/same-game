@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 const Cubo = ({ color, onButtonClick, x, y }) => {
     const [animatedClass, setAnimatedClass] = useState('');
 
-    function animate() {
+    const animate  = () => {
         // metterci setCubi
         setAnimatedClass('');
         setAnimatedClass('animated bounceIn')
