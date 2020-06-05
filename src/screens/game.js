@@ -17,8 +17,8 @@ const Game = () => {
     function onButtonClick(x, y) {
         console.log(x,y)
         setGameCounter(gameCounter + 1)
-        // checkColor(x, y)
-        // removeCoordinates()
+        checkColor(x, y)
+        removeCoordinates()
     }
 
     const classes = useStyles();
