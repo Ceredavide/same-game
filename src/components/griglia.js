@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 const Griglia = ({ columns, onButtonClick }) => {
     // todo dare flex direction cosi crea il cubo
     return (
-        <Box flexDirection="row" display="flex">
+        <Box display="flex" className={'rotated'}>
             {columns.map((column, index) =>
                 <Box>
                     <Column x={index} column={column} onButtonClick={onButtonClick} />

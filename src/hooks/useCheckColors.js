@@ -29,7 +29,9 @@ const useCheckColors = () => {
         // se non è così, le aggiunge
         if (coordinates.findIndex(coordinate => coordinate.x === x && coordinate.y === y) === -1) {
             coordinates.push({ x: x, y: y })
-            setCoordinates([...coordinates])
+            setCoordinates(...coordinates)
+            console.log(coordinates)
+            console.log(getColor(x, y))
             return checkColor(x, y)
         }
     }
@@ -47,8 +49,7 @@ const useCheckColors = () => {
         // restituisce il colore di un cubo
         // se gli viene passato un valore superiore alla lunghezza della griglia non esegue la funzione
         if (y >= columns.length || y < 0 || x >= columns[y].length || x < 0) return null
-        const color = columns[y][x]
-        return color
+        else return columns[y][x]
     }
 
     return {
