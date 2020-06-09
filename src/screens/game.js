@@ -10,14 +10,12 @@ import useCheckColors from "../hooks/useCheckColors"
 
 const Game = () => {
     const [gameCounter, setGameCounter] = useState(0)
-    const [score, setScore] = useState(0)
 
-    const { columns, checkColor, removeCoordinates } = useCheckColors()
+    const { score, columns, checkColor, removeCoordinates } = useCheckColors()
 
     function onButtonClick(x, y) {
-        console.log(x,y)
         setGameCounter(gameCounter + 1)
-        checkColor(x, y)
+        checkColor(y, x)
         removeCoordinates()
     }
 
@@ -27,11 +25,15 @@ const Game = () => {
             <Griglia columns={columns} onButtonClick={onButtonClick} />
             {/* Mettere punteggio */}
             <div>
-                {gameCounter}
+                Punteggio: {score}
+            </div>
+            <div>
+                N° giocate: {gameCounter}
+            </div>
+            <div>
                 <HomeButton />
                 <RefreshButton />
             </div>
-
         </Card>
     );
 };
@@ -40,9 +42,6 @@ const useStyles = makeStyles({
     root: {
         padding: 10,
         backgroundColor: 'gray',
-    },
-    griglia: {
-
     }
 });
 
