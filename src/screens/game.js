@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 
@@ -6,17 +6,20 @@ import HomeButton from "../components/Buttons/homeButton";
 import RefreshButton from "../components/Buttons/refreshButton";
 import Griglia from "../components/griglia";
 
-import useCheckColors from "../hooks/useCheckColors"
+import useGame from "../hooks/useGame"
 
 const Game = () => {
-    const [gameCounter, setGameCounter] = useState(0)
 
-    const { score, columns, checkColor, removeCoordinates } = useCheckColors()
+    const colors = ["yellow", "green", "blue", "red"];
+
+    const LEN_X = 5
+
+    const LEN_Y = 5
+
+    const { columns, score, gameCounter, play } = useGame(colors, LEN_X, LEN_Y)
 
     function onButtonClick(x, y) {
-        setGameCounter(gameCounter + 1)
-        checkColor(y, x)
-        removeCoordinates()
+        play(x, y)
     }
 
     const classes = useStyles();

@@ -1,32 +1,40 @@
 import { useState, useEffect } from "react"
 
-function useColumns() {
+function useColumns(colors, lenX, lenY) {
 
-    const colors = ["yellow", "green", "blue", "red"];
     const [columns, setColumns] = useState([]);
+    const [colorsState, setColorsState] = useState(getInitialColorsState())
 
     useEffect(createCubi, [])
+
+    // inizializza il contatore di blocchi per colore
+    function getInitialColorsState() {
+        let obj = {}
+        colors.forEach(color => obj[color] = 0)
+        return obj
+    }
 
     function createCubi() {
 
         //
-        //Qui modificando il valore di x e y
+        // Viene creata la griglia con colori casuali
         //si può modificare la grangezza della griglia 
         //
 
-        for (let y = 0; y < 5; y++) {
+        for (let x = 0; x < lenX; x++) {
             let column = []
-            for (let x = 0; x < 5; x++) {
-                const randomColor = colors[Math.floor(Math.random() * (4 - 0) + 0)];
+            for (let y = 0; y < lenY; y++) {
+                const randomColor = colors[Math.floor(Math.random() * (colors.length - 0) + 0)];
+                colorsState[randomColor]++
+                setColorsState({ ...colorsState })
                 column.push(randomColor)
             }
             columns.push(column)
             setColumns([...columns])
         }
-        console.table(columns)
     }
 
-    return columns
+    return { initialColumns: columns, initialColorsState: colorsState }
 
 }
 
