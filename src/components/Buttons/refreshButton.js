@@ -5,9 +5,8 @@ import RefreshIcon from '@material-ui/icons/Refresh';
 const RefreshButton = ({history}) => {
 
     return (
-        <button className={'btn third'} >
+        <button className={'btn third'} onClick={() => window.location.reload()}>
             <RefreshIcon fontSize={"medium"}/>
-
         </button>
     );
 };
