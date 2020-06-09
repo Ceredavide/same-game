@@ -1,11 +1,21 @@
 import { useState } from "react"
 import useColumns from "./useColumns"
 
-const useCheckColors = () => {
+const useGame = (colors, lenX, lenY) => {
 
-    const [columns, setColumns] = useState(useColumns())
+    const { initialColumns, initialColorsState } = useColumns(colors, lenX, lenY)
+
+    const [columns, setColumns] = useState(initialColumns)
+    const [colorsState, setColorsState] = useState(initialColorsState)
     const [coordinates, setCoordinates] = useState([])
     const [score, setScore] = useState(0)
+    const [gameCounter, setGameCounter] = useState(0)
+
+    function play(y, x) {
+        checkColor(x, y)
+        removeCoordinates()
+        checkIsFinished()
+    }
 
     function checkColor(x, y) {
         // controlla il colore dei cubi attorno alle coordinate inserite
@@ -36,15 +46,28 @@ const useCheckColors = () => {
     }
 
     function removeCoordinates() {
+        // ordina le coordinate in modo crescente
         let sortedArray = coordinates.sort((a, b) => b.x - a.x)
         let len = sortedArray.length
         setCoordinates(...sortedArray)
         setScore(prevScore => prevScore + Math.pow((len), 2))
         coordinates.forEach(coordinate => {
+            colorsState[getColor(coordinate.x, coordinate.y)]--
+            setColorsState({ ...colorsState })
             columns[coordinate.y].splice(coordinate.x, 1)
             setColumns([...columns])
         })
         setCoordinates([])
+        setGameCounter(gameCounter + 1)
+    }
+
+    function checkIsFinished() {
+        let gameFinshed = colors.every(color => colorsState[color] <= 1)
+
+        if (gameFinshed) {
+            alert("Gioco finito! Hai fatto " + score + " punti!")
+        }
+
     }
 
     function getColor(x, y) {
@@ -56,12 +79,12 @@ const useCheckColors = () => {
 
     return {
         columns: columns,
-        checkColor: checkColor,
-        removeCoordinates: removeCoordinates,
-        score: score
+        score: score,
+        gameCounter: gameCounter,
+        play: play
     }
 }
 
 
 
-export default useCheckColors
+export default useGame
