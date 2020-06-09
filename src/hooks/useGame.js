@@ -65,7 +65,7 @@ const useGame = (colors, lenX, lenY) => {
         let gameFinshed = colors.every(color => colorsState[color] <= 1)
 
         if (gameFinshed) {
-            alert("Gioco finito! Hai fatto " + score + " punti!")
+            
         }
 
     }
