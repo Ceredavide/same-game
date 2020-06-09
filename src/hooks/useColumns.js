@@ -23,6 +23,7 @@ function useColumns() {
             columns.push(column)
             setColumns([...columns])
         }
+        console.table(columns)
     }
 
     return columns
