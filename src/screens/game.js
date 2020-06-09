@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Box from '@material-ui/core/Box';
 
 import HomeButton from "../components/Buttons/homeButton";
 import RefreshButton from "../components/Buttons/refreshButton";
@@ -27,15 +28,19 @@ const Game = () => {
         <Card className={classes.root} elevation={3} >
             <Griglia columns={columns} onButtonClick={onButtonClick} />
             {/* Mettere punteggio */}
-            <div>
-                Punteggio: {score}
-            </div>
-            <div>
-                N° giocate: {gameCounter}
-            </div>
-            <div>
-                <HomeButton />
-                <RefreshButton />
+            <div style={{ padding: 20 }}>
+                <Box display="flex" flexDirection="row" justifyContent="space-around">
+                    <div>
+                        Punteggio: {score}
+                    </div>
+                    <div>
+                        N° giocate: {gameCounter}
+                    </div>
+                </Box>
+                <Box display="flex" flexDirection="row">
+                    <HomeButton />
+                    <RefreshButton />
+                </Box>
             </div>
         </Card>
     );
