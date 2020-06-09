@@ -8,19 +8,12 @@ const Griglia = ({ columns, onButtonClick }) => {
     return (
         <Box display="flex" className={'rotated'}>
             {columns.map((column, index) =>
-                <Box>
+                <Box key={index}>
                     <Column x={index} column={column} onButtonClick={onButtonClick} />
                 </Box>
             )}
         </Box>
     )
-};
-
-const styles = {
-    griglia: {
-        height: "auto",
-        width: "auto",
-    }
 };
 
 export default Griglia;

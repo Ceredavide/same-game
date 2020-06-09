@@ -7,7 +7,7 @@ const Column = ({ x, column, onButtonClick }) => {
     return (
         <Box>
             {column.map((color, index) =>
-                <Box>
+                <Box key={index}>
                     <Cubo y={index} x={x} color={color} onButtonClick={onButtonClick} />
                 </Box>
             )}
