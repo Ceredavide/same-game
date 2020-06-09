@@ -5,6 +5,7 @@ const useCheckColors = () => {
 
     const [columns, setColumns] = useState(useColumns())
     const [coordinates, setCoordinates] = useState([])
+    const [score, setScore] = useState(0)
 
     function checkColor(x, y) {
         // controlla il colore dei cubi attorno alle coordinate inserite
@@ -30,19 +31,20 @@ const useCheckColors = () => {
         if (coordinates.findIndex(coordinate => coordinate.x === x && coordinate.y === y) === -1) {
             coordinates.push({ x: x, y: y })
             setCoordinates(...coordinates)
-            console.log(coordinates)
-            console.log(getColor(x, y))
             return checkColor(x, y)
         }
     }
 
     function removeCoordinates() {
+        let sortedArray = coordinates.sort((a, b) => b.x - a.x)
+        let len = sortedArray.length
+        setCoordinates(...sortedArray)
+        setScore(prevScore => prevScore + Math.pow((len), 2))
         coordinates.forEach(coordinate => {
-            columns[coordinate.x].splice(coordinate.y, 1) //todo
+            columns[coordinate.y].splice(coordinate.x, 1)
             setColumns([...columns])
         })
         setCoordinates([])
-        console.table(columns)
     }
 
     function getColor(x, y) {
@@ -55,7 +57,8 @@ const useCheckColors = () => {
     return {
         columns: columns,
         checkColor: checkColor,
-        removeCoordinates: removeCoordinates
+        removeCoordinates: removeCoordinates,
+        score: score
     }
 }
 
